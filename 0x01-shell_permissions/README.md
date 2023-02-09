@@ -10,4 +10,5 @@ chmod 751- adds execution permission to the owner, the group owner and the other
 chmod 007- Owner: no permission at all Group: no permission at all Other users: all the permissions
 chmod 753- -rwxr-x-wx to the file hello
 chmod --reference=olleh hello  -script that sets the mode of the file hello the same as olleh’s mode.
-chmod +R +111 */ OR chmod -R +X  -script that adds execute permission to all subdirectories of the current directory for the owner, the group owner and all other users. Regular files should not be changed 
+chmod +R +111 */ OR chmod -R +X  -script that adds execute permission to all subdirectories of the current directory for the owner, the group owner and all other users. Regular files should not be changed
+mkdir -m 751 my_dir -creates a directory called my_dir with permissions 751 in the working directory 
