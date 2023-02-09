@@ -9,4 +9,4 @@ chmod 754- adds execute permission to the owner and the group owner, and read pe
 chmod 751- adds execution permission to the owner, the group owner and the other users, to the file
 chmod 007- Owner: no permission at all Group: no permission at all Other users: all the permissions
 chmod 753- -rwxr-x-wx to the file hello
-chmod--reference=olleh hello  -script that sets the mode of the file hello the same as olleh’s mode. 
+chmod --reference=olleh hello  -script that sets the mode of the file hello the same as olleh’s mode. 
