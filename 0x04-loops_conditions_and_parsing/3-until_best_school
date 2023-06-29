@@ -3,7 +3,7 @@
 
 a=1
 
-until (("$a" >= 10))
+until (("$a" >= 11))
 do
 	echo "Best School"
 	((a++))
