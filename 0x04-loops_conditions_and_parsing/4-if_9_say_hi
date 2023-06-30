@@ -4,9 +4,9 @@
 
 counter=0
 
-while  ((counter <= 9))
+while [ $counter -lt 10 ]
 do
-	if ((counter == 9))
+	if [ $counter -eq 9 ]
 	then
 		echo "Hi"
 	fi
