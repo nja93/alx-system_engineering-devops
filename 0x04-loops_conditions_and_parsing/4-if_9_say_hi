@@ -2,9 +2,9 @@
 # This script displays "Best School" 10 times using a while loop
 # At the 9th iteration it displays "Hi"
 
-counter=1
+counter=0
 
-while  (($counter <= 11))
+while  (($counter <= 9))
 do
 	if (($counter == 9))
 	then
