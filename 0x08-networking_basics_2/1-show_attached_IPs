@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# Script that displays all IPV4 IPS on a machine
-# Prints the IP address of the machine.
-# also displays all active IPv4 addresses.
-
-ifconfig | grep 'inet ' | awk '{print $2}'
