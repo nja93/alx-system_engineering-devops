@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # script that creates an RSA key pair
-# b flag defines bitsize, -f defines the ssh keytype
+# b flag defines bitsize, -f defines the rsa type and -N passohrase
 
-ssh-keygen -b 4096 -f rsa  school -N betty
+ssh-keygen -b 4096 -f school -N betty
