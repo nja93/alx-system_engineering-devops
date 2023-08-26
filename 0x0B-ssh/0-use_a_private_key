@@ -10,5 +10,5 @@ private_key="~/.ssh/school"
 username="ubuntu"
 
 # SSH command, -i flag specifies the identity (private key) file to be used for authentication
-ssh -i "$private_key" "$username@$server"
+ssh -i $private_key $username@$server -y
 
