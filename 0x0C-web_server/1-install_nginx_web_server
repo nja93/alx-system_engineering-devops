@@ -5,7 +5,7 @@
 # update packages, install nginx,set it to listen to port 80
 # Serve a page that would return a Hello World string
 sudo apt-get update -y
-sudo apt-get install nginx -y
+sudo apt-get -y  install nginx
 
 #install nginx to only listen to port 80
 ufw allow 'Nginx HTTP'
