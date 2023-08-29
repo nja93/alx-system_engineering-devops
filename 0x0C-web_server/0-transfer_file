@@ -7,6 +7,9 @@
 # username="$3"
 # path_to_ssh_key="$4"
 # Check if at least 3 parameters are passed there should be NOT BE less than 4
+# last script uses the scp command to transfer the file specified by the first argument ($1) to the server IP specified by the second argument ($2), using the username specified by the third argument ($3). The -i flag is used to specify the path to the SSH private key ($4).
+# The -o StrictHostKeyChecking=no option disables strict host key checking.
+# scp -i "$path_to_ssh_key" $SSH_OPTIONS "$path_to_file" "$username@$server_ip:~/"
 
 if [ $# -lt 4 ]
 then
