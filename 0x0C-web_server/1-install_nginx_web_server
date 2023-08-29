@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
 # this script configures a new ubuntu machine:
-#
-# WILL ADD MORE CMMENTS LATER, HAVING SOME CONNECTIVITY ISSUES`
+# update packages, install nginx,set it to listen to port 80
 # Serve a page that would return a Hello World string
 sudo apt-get update -y
 sudo apt-get install nginx -y
-
-#install nginx to only listen to port 80
 ufw allow 'Nginx HTTP'
-
-# print string and store it 
 echo "Hello World!" > /var/www/html/index.nginx-ubuntu.html
-# command to start
+#start nginx
 sudo service nginx start
