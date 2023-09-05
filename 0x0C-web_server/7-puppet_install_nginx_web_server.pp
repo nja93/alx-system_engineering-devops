@@ -1,32 +1,21 @@
-#!/usr/bin/env bash
-# Script that configure an Nginx server redirect_me
+#Nginx installation and configuraton with puppet
 
-# run bash script from task 1
-./1-install_nginx_web_server
+package { 'nginx':
+  ensure => 'installed',
+}
 
-# 404 error display
-echo "Ceci n'est pas une page" | sudo tee /etc/nginx/html/404.html
+file { '/var/www/html/index.html':
+  content => 'Hello World!',
+}
 
-# create the error file
-sudo mkdir /etc/nginx/html/
+file_line { 'redirection-301':
+  ensure => 'present',
+  path   => '/etc/nginx/sites-available/default',
+  after  => 'listen 80 default_server;',
+  line   => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;'
+}
 
-# configure the server
-printf %s "server {
-    listen 80;
-    listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html index.htm;
-
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-    }
-
-    error_page 404 /404.html;
-    location /404 {
-      root /etc/nginx/html;
-      internal;      
-    }
-}" | sudo tee /etc/nginx/sites-available/default
-
-# restart nginx
-sudo service nginx restart
+service { 'nginx':
+  ensure  => running,
+  require => Package[ 'nginx' ]
+}
