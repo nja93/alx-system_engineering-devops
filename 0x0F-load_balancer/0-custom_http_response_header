@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#this script configures a new ubuntu machine
+# update package list
+sudo apt -y update
+
+# Install Nginx
+sudo apt install -y nginx
+
+# Create a retrun string "Hello World!" when quering
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+
+# Configure Nginx to listen on port 80
+sudo sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
+
+# Restart nginx
+service nginx restart
