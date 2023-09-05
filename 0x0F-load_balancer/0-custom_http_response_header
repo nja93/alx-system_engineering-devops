@@ -5,9 +5,6 @@ sudo apt -y update
 # Install Nginx
 sudo apt install -y nginx
 
-# Create a retrun string "Hello World!" when quering
-echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
-
 # Configure Nginx to listen on port 80
 sudo sed -i "/http {/a\         add_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
 # Restart nginx
