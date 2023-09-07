@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#ensure Nginx is running at port 80 of all the servers active IPv4 IPs
+#rm is used to remove files. This line removes the default NGINX configuration file located at /etc/nginx/sites-enabled/default. This i#it is used when you want to custimise nginx configuration.
+#ln -s is the command used to create symbolic link. This line creates a symbolic link from the /etc/nginx/sites-available/default confi#guration file to /etc/nginx/sites-enabled/default. This enables a site by creating a symbolic link in the sites-enabled directory that#points to the configuration file in the sites-available directory.
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
