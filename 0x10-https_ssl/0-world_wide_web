@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# This basj script takes 'domain' and 'subdomain' parameters and displays information for the specified subdomain
+#this block of code uses 'dig' to query the domain and subdomain records. grep to find the line containing "ANSWER SECTION:" in the dig output, 
+# tr is used to replace tabs ('\t') with newline characters ('\n'). This makes it easier to process the output line by line.
+# it has been used again to replace the new line with a space
+# tail -2 extracts the last two lines of the output, which contain the relevant DNS record information.
+
+print_info () {
+	script=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+	echo "$2 $script" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
+}
+
+if [ "$#" -eq 2 ]; then
+	print_info "$1" "$2"
+else
+	subdomains=("www" "lb-01" "web-01" "web-02")
+	for subdomain in "${subdomains[@]}"; do
+		print_info "$1" "$subdomain"
+	done
+fi
