@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# 1: Stop the Apache web server if it's running
+pkill apache2
+
+# 2: Change ownership of the Nginx configuration file
+chown nginx /etc/nginx/nginx.conf
+
+# 3: Modify permissions to allow the Nginx user to read the configuration file
+chmod u+r /etc/nginx/nginx.conf
+
+# 4: Update the Nginx default site configuration to use port 8080 instead of 80
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default
+
+# 5: Restart the Nginx service with the changes to apply them
+sudo -u nginx service nginx restart
