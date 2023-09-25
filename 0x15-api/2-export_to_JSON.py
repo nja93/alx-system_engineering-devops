@@ -24,4 +24,3 @@ if __name__ == '__main__':
                                     })
     with open('{}.json'.format(user_id), 'w') as file:
         dump(dictionary, file)
-
